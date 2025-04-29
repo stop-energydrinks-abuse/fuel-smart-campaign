@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FuelSmart - Stop Energy Drink Abuse</title>
+    <style>
+        :root {
+            --primary: #ff6b35;
+            --secondary: #004e89;
+            --accent: #f7c59f;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --danger: #ef233c;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: var(--light);
+        }
+        
+        a {
+            text-decoration: none;
+            color: var(--secondary);
+        }
+        
+        ul {
+            list-style: none;
+        }
+        
+        .container {
+            max-width: 1100px;
+            margin: auto;
+            padding: 0 20px;
+            overflow: hidden;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: var(--primary);
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .btn:hover {
+            background: #e05a2b;
+            transform: translateY(-2px);
+        }
+        
+        .btn-secondary {
+            background: var(--secondary);
+        }
+        
+        .btn-secondary:hover {
+            background: #003b6b;
+        }
+        
+        header {
+            background: #fff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary);
+        }
+        
+        .logo span {
+            color: var(--secondary);
+        }
+        
+        .nav-links {
+            display: flex;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a {
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        
+        .hamburger {
+            display: none;
+            cursor: pointer;
+        }
+        
+        .hero {
+            background: linear-gradient(rgba(0, 78, 137, 0.8), rgba(0, 78, 137, 0.8)), url('https://images.unsplash.com/photo-1550258987-190a2d41a8ba?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: #fff;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .stats {
+            padding: 80px 0;
+            background: #fff;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            color: var(--secondary);
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .stat-card {
+            background: var(--light);
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .stat-card i {
+            font-size: 40px;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        
+        .stat-card h3 {
+            font-size: 36px;
+            color: var(--secondary);
+            margin-bottom: 10px;
+        }
+        
+        .info {
+            padding: 80px 0;
+            background: var(--light);
+        }
+        
+        .info-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+        
+        .info-text h2 {
+            color: var(--secondary);
+            margin-bottom: 20px;
+        }
+        
+        .info-text p {
+            margin-bottom: 15px;
+        }
+        
+        .info-image img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .dangers {
+            padding: 80px 0;
+            background: #fff;
+        }
+        
+        .dangers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .danger-card {
+            background: var(--light);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .danger-card h3 {
+            color: var(--danger);
+            margin-bottom: 15px;
+        }
+        
+        footer {
+            background: var(--secondary);
+            color: #fff;
+            padding: 50px 0 20px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-column h3 {
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-column a {
+            color: #fff;
+            opacity: 0.8;
+            transition: opacity 0.3s ease;
+        }
+        
+        .footer-column a:hover {
+            opacity: 1;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-links a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            transition: background 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            opacity: 0.7;
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                background: #fff;
+                padding: 20px;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .nav-links li {
+                margin: 10px 0;
+            }
+            
+            .hamburger {
+                display: block;
+            }
+            
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .hero p {
+                font-size: 18px;
+            }
+            
+            .info-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .info-image {
+                order: -1;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="index.html" class="logo">Fuel<span>Smart</span></a>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="tips.html">Tips & Alternatives</a></li>
+                    <li><a href="contact.html">Get Help</a></li>
+                </ul>
+                <div class="hamburger" id="hamburger">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>Stop Energy Drink Abuse</h1>
+                    <p>Millions are putting their health at risk with excessive energy drink consumption. Learn the dangers and discover healthier alternatives.</p>
+                    <a href="tips.html" class="btn">Learn More</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="stats">
+            <div class="container">
+                <h2 class="section-title">The Shocking Reality</h2>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <i class="fas fa-bolt"></i>
+                        <h3>30%</h3>
+                        <p>of adolescents consume energy drinks regularly</p>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-heartbeat"></i>
+                        <h3>5x</h3>
+                        <p>higher risk of heart problems with daily consumption</p>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <h3>20,000+</h3>
+                        <p>ER visits yearly linked to energy drinks in the US alone</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="info">
+            <div class="container">
+                <div class="info-content">
+                    <div class="info-text">
+                        <h2>What's in Your Energy Drink?</h2>
+                        <p>Energy drinks typically contain large amounts of caffeine, sugar, and other stimulants that can have serious health consequences when consumed excessively.</p>
+                        <p>A single can may contain as much caffeine as 3 cups of coffee, along with sugar equivalent to several candy bars. The combination creates a dangerous cocktail that stresses your body.</p>
+                        <p>Many users don't realize they're developing a dependence until they experience withdrawal symptoms like headaches, fatigue, and irritability when they try to stop.</p>
+                    </div>
+                    <div class="info-image">
+                        <img src="https://images.unsplash.com/photo-1596755094514-f87e34085b2c?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Energy drink ingredients">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="dangers">
+            <div class="container">
+                <h2 class="section-title">The Hidden Dangers</h2>
+                <div class="dangers-grid">
+                    <div class="danger-card">
+                        <h3>Cardiovascular Problems</h3>
+                        <p>Excessive consumption can lead to increased heart rate, high blood pressure, and in severe cases, heart attacks - especially when combined with alcohol or during physical activity.</p>
+                    </div>
+                    <div class="danger-card">
+                        <h3>Mental Health Impacts</h3>
+                        <p>The caffeine and sugar crash cycle can exacerbate anxiety, depression, and sleep disorders. Many users report increased irritability and difficulty concentrating.</p>
+                    </div>
+                    <div class="danger-card">
+                        <h3>Addiction Potential</h3>
+                        <p>Regular use can lead to physical dependence, with withdrawal symptoms including severe headaches, fatigue, and difficulty concentrating when not consuming.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta" style="padding: 60px 0; background: var(--secondary); color: #fff; text-align: center;">
+            <div class="container">
+                <h2 style="margin-bottom: 20px;">Ready to Make a Change?</h2>
+                <p style="margin-bottom: 30px; max-width: 700px; margin-left: auto; margin-right: auto;">Discover healthier alternatives and learn how to safely reduce your energy drink consumption.</p>
+                <a href="tips.html" class="btn" style="background: #fff; color: var(--secondary);">Get Tips & Alternatives</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>About FuelSmart</h3>
+                    <p>A campaign dedicated to raising awareness about the dangers of energy drink abuse and promoting healthier alternatives.</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="tips.html">Tips & Alternatives</a></li>
+                        <li><a href="contact.html">Get Help</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact</h3>
+                    <ul>
+                        <li><i class="fas fa-envelope"></i> stop.energydrinks.abuse@gmail.com</li>
+                        <li><i class="fas fa-phone"></i> 0558637980</li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Follow Us</h3>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Fuel Smart Campaign. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const hamburger = document.getElementById('hamburger');
+            const mobileNav = document.getElementById('navLinks');
+            
+            hamburger.addEventListener('click', function() {
+                mobileNav.classList.toggle('active');
+            });
+            
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.addEventListener('click', function() {
+                    mobileNav.classList.remove('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
