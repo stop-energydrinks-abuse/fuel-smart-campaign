@@ -168,19 +168,27 @@
         
         .alternatives-list {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
         }
         
         .alternative {
-            background: var(--accent);
-            padding: 20px;
+            padding: 10px;
             border-radius: 10px;
+            background: transparent;
         }
         
-        .alternative h4 {
-            color: var(--secondary);
-            margin-bottom: 10px;
+        .alternative-image {
+            text-align: center;
+        }
+        
+        .alternative-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            display: block;
+            margin: 0 auto;
         }
         
         /* Footer */
@@ -349,28 +357,39 @@
             
             <div class="alternatives-list">
                 <div class="alternative">
-                    <h4>Green Tea</h4>
-                    <p>Contains L-theanine which provides calm energy without jitters. About 25-40mg caffeine per cup.</p>
+                    <div class="alternative-image">
+                        <img src="coconut water.jpg" alt="Coconut Water" />
+                    </div>
                 </div>
                 <div class="alternative">
-                    <h4>Kombucha</h4>
-                    <p>Fermented tea with natural probiotics, B vitamins, and a small amount of caffeine.</p>
+                    <div class="alternative-image">
+                        <img src="green-tea.jpg" alt="Green Tea" />
+                    </div>
                 </div>
                 <div class="alternative">
-                    <h4>Sparkling Water with Fruit</h4>
-                    <p>Provides hydration and the carbonation many energy drink users crave, without sugar or caffeine.</p>
+                    <div class="alternative-image">
+                        <img src="kombucha.jpg" alt="Kombucha" />
+                    </div>
                 </div>
                 <div class="alternative">
-                    <h4>Matcha Latte</h4>
-                    <p>Powdered green tea that provides sustained energy with antioxidants.</p>
+                    <div class="alternative-image">
+                        <img src="sparkling-water.jpg" alt="Sparkling Water with Fruit" />
+                    </div>
                 </div>
                 <div class="alternative">
-                    <h4>Golden Milk</h4>
-                    <p>Turmeric-based drink with anti-inflammatory properties and no caffeine.</p>
+                    <div class="alternative-image">
+                        <img src="matcha-latte.jpg" alt="Matcha Latte" />
+                    </div>
                 </div>
                 <div class="alternative">
-                    <h4>Chia Seed Drink</h4>
-                    <p>Provides sustained energy from healthy fats, fiber, and protein.</p>
+                    <div class="alternative-image">
+                        <img src="golden-milk.jpg" alt="Golden Milk" />
+                    </div>
+                </div>
+                <div class="alternative">
+                    <div class="alternative-image">
+                        <img src="chia-seed-drink.jpg" alt="Chia Seed Drink" />
+                    </div>
                 </div>
             </div>
             
