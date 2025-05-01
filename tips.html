@@ -154,16 +154,41 @@
         }
         
         .tip-card {
-            background: #fff;
             padding: 30px;
             border-radius: 10px;
             margin-bottom: 30px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+            color: #fff;
+        }
+        
+        /* New background image style for tip cards */
+        .tip-card-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            z-index: -1;
+            filter: brightness(0.6);
+        }
+        
+        .tip-card-content {
+            position: relative;
+            z-index: 1;
         }
         
         .tip-card h3 {
-            color: var(--secondary);
+            color: #fff;
             margin-bottom: 15px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        }
+        
+        .tip-card p, .tip-card li {
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
         }
         
         .alternatives-list {
@@ -251,6 +276,8 @@
             opacity: 0.7;
         }
         
+        /* Removed nutrition-card styles as we're now using tip-card for all */
+        
         /* Responsive */
         @media (max-width: 768px) {
             .nav-links {
@@ -321,35 +348,47 @@
         <div class="container">
             <h2 class="section-title">Reducing Energy Drink Consumption</h2>
             
+            <!-- Gradual Reduction Card with Background Image -->
             <div class="tip-card">
-                <h3>Gradual Reduction</h3>
-                <p>If you're consuming multiple energy drinks daily, don't stop abruptly. This can lead to severe withdrawal symptoms like headaches and fatigue. Instead:</p>
-                <ul style="list-style-type: disc; padding-left: 20px; margin-top: 15px;">
-                    <li style="margin-bottom: 10px;">Reduce by one drink every few days</li>
-                    <li style="margin-bottom: 10px;">Dilute your drinks with water to lower caffeine concentration</li>
-                    <li style="margin-bottom: 10px;">Set specific times when you'll allow yourself to have one</li>
-                </ul>
+                <div class="tip-card-bg" style="background-image: url('gradual-reduction.jpg');"></div>
+                <div class="tip-card-content">
+                    <h3>Gradual Reduction</h3>
+                    <p>If you're consuming multiple energy drinks daily, don't stop abruptly. This can lead to severe withdrawal symptoms like headaches and fatigue. Instead:</p>
+                    <ul style="list-style-type: disc; padding-left: 20px; margin-top: 15px;">
+                        <li style="margin-bottom: 10px;">Reduce by one drink every few days</li>
+                        <li style="margin-bottom: 10px;">Dilute your drinks with water to lower caffeine concentration</li>
+                        <li style="margin-bottom: 10px;">Set specific times when you'll allow yourself to have one</li>
+                    </ul>
+                </div>
             </div>
             
+            <!-- Hydration Card with Background Image -->
             <div class="tip-card">
-                <h3>Hydration is Key</h3>
-                <p>Many people reach for energy drinks when they're actually dehydrated. Proper hydration can naturally boost energy levels:</p>
-                <ul style="list-style-type: disc; padding-left: 20px; margin-top: 15px;">
-                    <li style="margin-bottom: 10px;">Carry a water bottle and sip throughout the day</li>
-                    <li style="margin-bottom: 10px;">Add lemon, cucumber, or mint for flavor</li>
-                    <li style="margin-bottom: 10px;">Monitor your urine color - pale yellow means you're well hydrated</li>
-                </ul>
+                <div class="tip-card-bg" style="background-image: url('hydration.jpg');"></div>
+                <div class="tip-card-content">
+                    <h3>Hydration is Key</h3>
+                    <p>Many people reach for energy drinks when they're actually dehydrated. Proper hydration can naturally boost energy levels:</p>
+                    <ul style="list-style-type: disc; padding-left: 20px; margin-top: 15px;">
+                        <li style="margin-bottom: 10px;">Carry a water bottle and sip throughout the day</li>
+                        <li style="margin-bottom: 10px;">Add lemon, cucumber, or mint for flavor</li>
+                        <li style="margin-bottom: 10px;">Monitor your urine color - pale yellow means you're well hydrated</li>
+                    </ul>
+                </div>
             </div>
             
+            <!-- Better Sleep Card with Background Image -->
             <div class="tip-card">
-                <h3>Better Sleep Habits</h3>
-                <p>Energy drinks often compensate for poor sleep. Improve your sleep quality to reduce dependence:</p>
-                <ul style="list-style-type: disc; padding-left: 20px; margin-top: 15px;">
-                    <li style="margin-bottom: 10px;">Maintain a consistent sleep schedule</li>
-                    <li style="margin-bottom: 10px;">Avoid screens 1 hour before bedtime</li>
-                    <li style="margin-bottom: 10px;">Create a relaxing bedtime routine</li>
-                    <li style="margin-bottom: 10px;">Keep your bedroom cool, dark, and quiet</li>
-                </ul>
+                <div class="tip-card-bg" style="background-image: url('sleep.jpg');"></div>
+                <div class="tip-card-content">
+                    <h3>Better Sleep Habits</h3>
+                    <p>Energy drinks often compensate for poor sleep. Improve your sleep quality to reduce dependence:</p>
+                    <ul style="list-style-type: disc; padding-left: 20px; margin-top: 15px;">
+                        <li style="margin-bottom: 10px;">Maintain a consistent sleep schedule</li>
+                        <li style="margin-bottom: 10px;">Avoid screens 1 hour before bedtime</li>
+                        <li style="margin-bottom: 10px;">Create a relaxing bedtime routine</li>
+                        <li style="margin-bottom: 10px;">Keep your bedroom cool, dark, and quiet</li>
+                    </ul>
+                </div>
             </div>
             
             <h2 class="section-title" style="margin-top: 60px;">Healthier Alternatives</h2>
@@ -394,14 +433,17 @@
             </div>
             
             <div class="tip-card" style="margin-top: 40px;">
-                <h3>Nutrition for Energy</h3>
-                <p>What you eat significantly impacts your energy levels. Focus on:</p>
-                <ul style="list-style-type: disc; padding-left: 20px; margin-top: 15px;">
-                    <li style="margin-bottom: 10px;">Complex carbohydrates (whole grains, vegetables)</li>
-                    <li style="margin-bottom: 10px;">Lean proteins (chicken, fish, beans)</li>
-                    <li style="margin-bottom: 10px;">Healthy fats (avocados, nuts, olive oil)</li>
-                    <li style="margin-bottom: 10px;">Iron-rich foods (leafy greens, red meat) to prevent anemia-related fatigue</li>
-                </ul>
+                <div class="tip-card-bg" style="background-image: url('nutrition.jpg');"></div>
+                <div class="tip-card-content">
+                    <h3>Nutrition for Energy</h3>
+                    <p>What you eat significantly impacts your energy levels. Focus on:</p>
+                    <ul style="list-style-type: disc; padding-left: 20px; margin-top: 15px;">
+                        <li style="margin-bottom: 10px;">Complex carbohydrates (whole grains, vegetables)</li>
+                        <li style="margin-bottom: 10px;">Lean proteins (chicken, fish, beans)</li>
+                        <li style="margin-bottom: 10px;">Healthy fats (avocados, nuts, olive oil)</li>
+                        <li style="margin-bottom: 10px;">Iron-rich foods (leafy greens, red meat) to prevent anemia-related fatigue</li>
+                    </ul>
+                </div>
             </div>
         </div>
     </section>
