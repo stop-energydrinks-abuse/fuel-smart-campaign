@@ -161,6 +161,9 @@
             position: relative;
             overflow: hidden;
             color: #fff;
+            min-height: 300px; /* Ensure minimum height for PC displays */
+            display: flex;
+            align-items: center;
         }
         
         /* New background image style for tip cards */
@@ -173,22 +176,63 @@
             background-size: cover;
             background-position: center;
             z-index: -1;
-            filter: brightness(0.6);
+            filter: brightness(0.5); /* Darkened for better text visibility */
+            transition: transform 0.3s ease;
+        }
+        
+        /* Subtle zoom effect on hover for PC */
+        @media (min-width: 992px) {
+            .tip-card:hover .tip-card-bg {
+                transform: scale(1.05);
+            }
         }
         
         .tip-card-content {
             position: relative;
             z-index: 1;
+            width: 100%;
         }
         
         .tip-card h3 {
             color: #fff;
             margin-bottom: 15px;
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+            font-size: 26px;
         }
         
         .tip-card p, .tip-card li {
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+            font-size: 16px;
+            line-height: 1.7;
+            max-width: 800px;
+        }
+        
+        /* Added specific media queries for different screen sizes */
+        @media (min-width: 1200px) {
+            .tip-card {
+                min-height: 320px;
+                padding: 40px;
+            }
+            
+            .tip-card h3 {
+                font-size: 28px;
+            }
+            
+            .tip-card p, .tip-card li {
+                font-size: 17px;
+            }
+        }
+        
+        @media (min-width: 992px) and (max-width: 1199px) {
+            .tip-card {
+                min-height: 300px;
+            }
+        }
+        
+        @media (min-width: 768px) and (max-width: 991px) {
+            .tip-card {
+                min-height: 280px;
+            }
         }
         
         .alternatives-list {
@@ -350,7 +394,7 @@
             
             <!-- Gradual Reduction Card with Background Image -->
             <div class="tip-card">
-                <div class="tip-card-bg" style="background-image: url('gradual reduction.png');"></div>
+                <div class="tip-card-bg" style="background-image: url('gradual reduction.png'); background-position: center 30%;"></div>
                 <div class="tip-card-content">
                     <h3>Gradual Reduction</h3>
                     <p>If you're consuming multiple energy drinks daily, don't stop abruptly. This can lead to severe withdrawal symptoms like headaches and fatigue. Instead:</p>
@@ -364,7 +408,7 @@
             
             <!-- Hydration Card with Background Image -->
             <div class="tip-card">
-                <div class="tip-card-bg" style="background-image: url('hydration.png');"></div>
+                <div class="tip-card-bg" style="background-image: url('hydration.png'); background-position: center 40%;"></div>
                 <div class="tip-card-content">
                     <h3>Hydration is Key</h3>
                     <p>Many people reach for energy drinks when they're actually dehydrated. Proper hydration can naturally boost energy levels:</p>
@@ -378,12 +422,12 @@
             
             <!-- Better Sleep Card with Background Image -->
             <div class="tip-card">
-                <div class="tip-card-bg" style="background-image: url('sleep.png');"></div>
+                <div class="tip-card-bg" style="background-image: url('sleep.png'); background-position: center 25%;"></div>
                 <div class="tip-card-content">
                     <h3>Better Sleep Habits</h3>
                     <p>Energy drinks often compensate for poor sleep. Improve your sleep quality to reduce dependence:</p>
                     <ul style="list-style-type: disc; padding-left: 20px; margin-top: 15px;">
-                        <li style="margin-bottom: 10px;">Maintain a consistent sleep schedule</li>
+                        <li style="margin-bottom: 10px;">Maintain a consistent sleep schedule by aiming for 7 to 9 hours of sleep</li>
                         <li style="margin-bottom: 10px;">Avoid screens 1 hour before bedtime</li>
                         <li style="margin-bottom: 10px;">Create a relaxing bedtime routine</li>
                         <li style="margin-bottom: 10px;">Keep your bedroom cool, dark, and quiet</li>
@@ -433,7 +477,7 @@
             </div>
             
             <div class="tip-card" style="margin-top: 40px;">
-                <div class="tip-card-bg" style="background-image: url('nutrition.png');"></div>
+                <div class="tip-card-bg" style="background-image: url('sleep.png'); background-position: center 35%;"></div>
                 <div class="tip-card-content">
                     <h3>Nutrition for Energy</h3>
                     <p>What you eat significantly impacts your energy levels. Focus on:</p>
